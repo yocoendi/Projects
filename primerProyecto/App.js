@@ -76,7 +76,7 @@ const App: () => Node = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="CESUR DAM">
-         Hola Jorge.
+         JORGE DIAZ DELGADO
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
