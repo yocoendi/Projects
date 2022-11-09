@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Button, Text, View, TextInput, Switch, Image } from 'react-native';
+import { StyleSheet,SafeAreaView, Button, Text, View, TextInput, Switch, Image } from 'react-native';
 import imgs from './img/thestocks.jpg';
 
 
@@ -31,7 +31,7 @@ export default function App() {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.campos}>
                 <Text style={styles.texto}>Nombre</Text>
                 <TextInput
@@ -79,7 +79,7 @@ export default function App() {
                 <Text>Mujer </Text>
             </View>
 
-            <View style={styles.botones}>
+            <View style={styles.fixToText}>
                 <Button
                     onPress={printText}
                     title={"Enviar"}
@@ -88,11 +88,14 @@ export default function App() {
                     onPress={reseTear}
                     title={"Resetear"}
                 />
-                <Text>{texto}</Text>
-                {texto===''?null:<Image style={styles.imagen} source={imgs}/>}
+                
                 
             </View>
-        </View>
+            <View>
+            <Text>{texto}</Text>
+                {texto===''?null:<Image style={styles.imagen} source={imgs}/>}
+            </View>
+        </SafeAreaView>
     );
 
 
@@ -124,6 +127,10 @@ const styles = StyleSheet.create({
         width: 90
 
     },
+    fixToText: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+      },
     textoNombre: {
         color: 'blue',
         fontSize: 20,
