@@ -22,11 +22,9 @@ export default function App() {
 
       <Text style={{ flexDirection: 'row' }}>
 
-        {edad == 18 ? <Text style={styles.texto}><Text style={styles.textoResulatdo}>Acaba de ser mayor</Text> de edad</Text>
+      
 
-        : edad < 18 ? <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>menor</Text> de edad</Text>
-
-        : <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>mayor</Text> de edad</Text>}
+        <Text>mi nombre es {nombre} con edad{edad} </Text>
 
       </Text>
 
@@ -39,7 +37,7 @@ export default function App() {
 
 
       <View style={{ flexDirection: 'row' }}>
-        <Text style={styles.texto}>Hola mi nombre es </Text>
+        <Text style={styles.texto}>Nombre</Text>
         <TextInput
         style={styles.input}
         placeholder="Nombre"
@@ -47,25 +45,36 @@ export default function App() {
         onChangeText={nombre => setName(nombre)}
       />
       </View>
+ 
       <View style={{ flexDirection: 'row' }}>
-        <Text style={styles.texto}>Hola mi nombre es </Text>
+        <Text style={styles.texto}>Apellidos</Text>
         <TextInput
         style={styles.input}
-        placeholder="Nombre"
-        keyboardType="name-phone-pad"
-        onChangeText={edad => setEdad(edad)}
-      />
-      </View>
-      <View style={{ flexDirection: 'row' }}>
-        <Text style={styles.texto}>Hola mi nombre es </Text>
-        <TextInput
-        style={styles.input}
-        placeholder="Nombre"
-        keyboardType="name-phone-pad"
+        placeholder="Apellidos"
+        keyboardType="default"
         onChangeText={apellidos => setApellidos(apellidos)}
       />
       </View>
       
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.texto}>Edad</Text>
+        <TextInput
+        style={styles.input}
+        placeholder="Edad"
+        keyboardType="numeric"
+        onChangeText={edad => setEdad(edad)}
+      />
+      </View>
+
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.texto}>Correo</Text>
+        <TextInput
+        style={styles.input}
+        placeholder="correo"
+        keyboardType="email-address"
+        onChangeText={correo => setCorreo(correo)}
+      />
+      </View>
       
 
 
@@ -78,12 +87,13 @@ export default function App() {
 
 
    
-      <Text>{texto}</Text>
+      
       <View style={styles.botones}>
         <Button
           onPress={printText}
-          title={"Finalizar"}
+          title={"Envia"}
         />
+        <Text>{texto}</Text>
       </View>
     </View>
   );
