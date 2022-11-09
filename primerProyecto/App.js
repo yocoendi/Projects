@@ -44,7 +44,7 @@ export default function App() {
         style={styles.input}
         placeholder="Nombre"
         keyboardType="name-phone-pad"
-        onChangeText={x => setName(x)}
+        onChangeText={nombre => setName(nombre)}
       />
       </View>
       <View style={{ flexDirection: 'row' }}>
