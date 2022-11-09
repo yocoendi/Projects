@@ -1,116 +1,113 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, { useState } from "react";
+import { StyleSheet, Button, Text, View, TextInput } from 'react-native';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+export default function App() {
+  const [booleano, setBooleano] = useState(false);
+
+  const [nombre, setNombre] = useState();
+  const [apellidos, setApellidos] = useState();
+  const [edad, setEdad] = useState();
+  const [coreo, setCorreo] = useState();
+
+
+  const [texto, setText] = useState();
+
+
+
+  const printText = () => {
+
+    setText(
+
+      <Text style={{ flexDirection: 'row' }}>
+
+        {edad == 18 ? <Text style={styles.texto}><Text style={styles.textoResulatdo}>Acaba de ser mayor</Text> de edad</Text>
+
+        : edad < 18 ? <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>menor</Text> de edad</Text>
+
+        : <Text style={styles.texto}>Es <Text style={styles.textoResulatdo}>mayor</Text> de edad</Text>}
+
+      </Text>
+
+    )
+
+  }
+  
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View>
+
+
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.texto}>Hola mi nombre es </Text>
+        <TextInput
+        style={styles.input}
+        placeholder="Nombre"
+        keyboardType="name-phone-pad"
+        onChangeText={x => setName(x)}
+      />
+      </View>
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.texto}>Hola mi nombre es </Text>
+        <TextInput
+        style={styles.input}
+        placeholder="Nombre"
+        keyboardType="name-phone-pad"
+        onChangeText={edad => setEdad(edad)}
+      />
+      </View>
+      
+      
+
+
+
+
+
+
+
+
+
+
+   
+      <Text>{texto}</Text>
+      <View style={styles.botones}>
+        <Button
+          onPress={printText}
+          title={"Finalizar"}
+        />
+      </View>
     </View>
   );
-};
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="CESUR DAM">
-         JORGE DIAZ DELGADO
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+ 
+}
+
+
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  texto: {
+    color: 'black',
+    fontSize: 20,
+    paddingTop: 50
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  textoNombre: {
+    color: 'blue',
+    fontSize: 20,
+    paddingTop: 50
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  botones: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 30,
+    paddingRight: 30,
+    borderRadius: 200,
   },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  }
+})
