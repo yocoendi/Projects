@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Button, Text, View, TextInput, Switch, Image } from 'react-native';
-import img from './img/thestocks.jpg';
+import imgs from './img/thestocks.jpg';
 
 
 
@@ -10,37 +10,25 @@ export default function App() {
     const [apellidos, setApellidos] = useState();
     const [edad, setEdad] = useState();
     const [coreo, setCorreo] = useState();
-    const [texto, setText] = useState();
-    const [img, setImagen] = useState();
-
-    const mostraImagen = () => {
-
-        setImagen(
-
-            < Image source={{ im }} />
-
-        )
-
-    }
+    const [texto, setText] = useState('');
+    
 
 
     const printText = () => {
 
-        setText(
+       
+        setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${coreo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
+    }
 
-            <Text>
-                <Text>Mi nombre es {nombre} {apellidos} tengo {edad} años, y mi correo es {coreo}. Sexo: {isEnabled ? "Mujer" : "Hombre"}</Text>
-            </Text>
+    const reseTear = () => {
 
-        )
-
+        setText("")
+        
     }
 
     return (
-        <View >
-
-
-            <View style={{ flexDirection: 'row' }}>
+        <View style={styles.container}>
+            <View style={styles.campos}>
                 <Text style={styles.texto}>Nombre</Text>
                 <TextInput
                     style={styles.input}
@@ -49,8 +37,7 @@ export default function App() {
                     onChangeText={nombre => setNombre(nombre)}
                 />
             </View>
-
-            <View style={{ flexDirection: 'row' }}>
+            <View style={styles.campos}>
                 <Text style={styles.texto}>Apellidos</Text>
                 <TextInput
                     style={styles.input}
@@ -59,8 +46,7 @@ export default function App() {
                     onChangeText={apellidos => setApellidos(apellidos)}
                 />
             </View>
-
-            <View style={{ flexDirection: 'row' }}>
+            <View style={styles.campos}>
                 <Text style={styles.texto}>Edad</Text>
                 <TextInput
                     style={styles.input}
@@ -69,8 +55,7 @@ export default function App() {
                     onChangeText={edad => setEdad(edad)}
                 />
             </View>
-
-            <View style={{ flexDirection: 'row' }}>
+            <View style={styles.campos}>
                 <Text style={styles.texto}>Correo</Text>
                 <TextInput
                     style={styles.input}
@@ -78,19 +63,16 @@ export default function App() {
                     keyboardType="email-address"
                     onChangeText={correo => setCorreo(correo)}
                 />
-
             </View>
-
-            <View style={{ flexDirection: 'row' }}>
-                <Text style={styles.texto}>Indica el Sexo: Hombre </Text>
+            <View style={styles.campos}>
+                <Text>Sexo: Hombre </Text>
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
                     thumbColor={isEnabled ? 'blue' : 'red'}
                     onValueChange={() => setIsEnabled((previousState) => !previousState)}
                     value={isEnabled}
-
                 />
-                <Text style={styles.texto}>Mujer </Text>
+                <Text>Mujer </Text>
             </View>
 
             <View style={styles.botones}>
@@ -98,7 +80,13 @@ export default function App() {
                     onPress={printText}
                     title={"Enviar"}
                 />
+                    <Button
+                    onPress={reseTear}
+                    title={"Resetear"}
+                />
                 <Text>{texto}</Text>
+                {texto===''?null:<Image style={styles.imagen} source={imgs}/>}
+                
             </View>
         </View>
     );
@@ -108,29 +96,29 @@ export default function App() {
 
 }
 
-
-
 const styles = StyleSheet.create({
 
     container: {
-
         flex: 1,
         padding: 30,
-        paddingTop: 100,
-        backgroundColor: '#808080'
+       
+    },
+    campos: {
+        flexDirection: 'row',
+        marginVertical: 10
     },
     botones: {
         paddingTop: 20,
         paddingBottom: 20,
-        paddingLeft: 30,
-        paddingRight: 30,
+ 
         borderRadius: 200,
         //backgroundColor: 'white'
     },
     texto: {
         color: 'black',
         fontSize: 20,
-        paddingTop: 50
+        width: 90
+
     },
     textoNombre: {
         color: 'blue',
@@ -138,10 +126,18 @@ const styles = StyleSheet.create({
         paddingTop: 50
     },
 
+    imagen:{
+
+        width:"100%",
+        height: 200
+
+
+    },
+
     input: {
-        height: 40,
-        margin: 12,
+        height: 20,
+        width: 120,
         borderWidth: 1,
-        padding: 14,
+        padding: 4,
     }
 })
