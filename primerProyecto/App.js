@@ -4,7 +4,7 @@ import { StyleSheet, Button, Text, View, TextInput,Switch } from 'react-native';
 
 
 export default function App() {
-    const [isEnabled, setIsEnable] = useState(null);
+    const [isEnabled, setIsEnabled] = useState(null);
     const [nombre, setNombre] = useState();
     const [apellidos, setApellidos] = useState();
     const [edad, setEdad] = useState();
@@ -70,7 +70,7 @@ export default function App() {
                     keyboardType="email-address"
                     onChangeText={correo => setCorreo(correo)}
                 />
-                
+
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
                     thumbColor={isEnabled ? 'blue' : 'red'}
