@@ -10,7 +10,6 @@ export default function App() {
     const [apellidos, setApellidos] = useState();
     const [edad, setEdad] = useState();
     const [coreo, setCorreo] = useState();
-
     const [texto, setText] = useState();
     const [img, setImagen] = useState();
 
