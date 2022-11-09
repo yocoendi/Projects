@@ -22,9 +22,7 @@ export default function App() {
 
       <Text style={{ flexDirection: 'row' }}>
 
-      
-
-        <Text>mi nombre es {nombre} con edad{edad} </Text>
+        <Text>mi nombre es {nombre} {apellidos}con edad {edad}, y mi correo es  {coreo} </Text>
 
       </Text>
 
@@ -42,7 +40,7 @@ export default function App() {
         style={styles.input}
         placeholder="Nombre"
         keyboardType="name-phone-pad"
-        onChangeText={nombre => setName(nombre)}
+        onChangeText={nombre => setNombre(nombre)}
       />
       </View>
  
@@ -91,9 +89,9 @@ export default function App() {
       <View style={styles.botones}>
         <Button
           onPress={printText}
-          title={"Envia"}
+          title={"Enviar"}
         />
-        <Text>{texto}</Text>
+       <Text>{texto}</Text>
       </View>
     </View>
   );
