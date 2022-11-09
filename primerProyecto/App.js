@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Button, Text, View, TextInput,Switch } from 'react-native';
+import { StyleSheet, Button, Text, View, TextInput, Switch } from 'react-native';
 
 
 
@@ -9,7 +9,7 @@ export default function App() {
     const [apellidos, setApellidos] = useState();
     const [edad, setEdad] = useState();
     const [coreo, setCorreo] = useState();
-    const [sexo, setSexo] = useState();
+
     const [texto, setText] = useState();
 
 
@@ -20,7 +20,7 @@ export default function App() {
 
             <Text style={{ flexDirection: 'row' }}>
 
-                <Text>Mi nombre es {nombre} {apellidos} tengo {edad} años, y mi correo es {coreo} {isEnabled? <Text>Hombre</Text>:<Text>Mujer</Text>}</Text>
+                <Text>Mi nombre es {nombre} {apellidos} tengo {edad} años, y mi correo es {coreo} {isEnabled ? <Text>Hombre</Text> : <Text>Mujer</Text>}</Text>
 
             </Text>
 
@@ -71,13 +71,19 @@ export default function App() {
                     onChangeText={correo => setCorreo(correo)}
                 />
 
+
+
+            </View>
+
+            <View>
+                <Text style={styles.texto}>Indica el Sexo: Hombre </Text>
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
                     thumbColor={isEnabled ? 'blue' : 'red'}
                     onValueChange={() => setIsEnabled((previousState) => !previousState)}
                     value={isEnabled}
-                />
 
+                />
             </View>
 
 
@@ -111,13 +117,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         paddingTop: 50
     },
-    botones: {
-        paddingTop: 20,
-        paddingBottom: 20,
-        paddingLeft: 30,
-        paddingRight: 30,
-        borderRadius: 200,
-    },
+
     input: {
         height: 40,
         margin: 12,
