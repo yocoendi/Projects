@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Button, Text, View, TextInput, Switch } from 'react-native';
+import { StyleSheet, Button, Text, View, TextInput, Switch , Image } from 'react-native';
 
 
 
@@ -11,7 +11,17 @@ export default function App() {
     const [coreo, setCorreo] = useState();
 
     const [texto, setText] = useState();
+    const [imagen, setImagen] = useState();
 
+    const mostraImagen = () => {
+
+        setImagen(
+
+      <Image></Image>
+
+        )
+
+    }
 
 
     const printText = () => {
@@ -20,7 +30,7 @@ export default function App() {
 
             <Text style={{ flexDirection: 'row' }}>
 
-                <Text>Mi nombre es {nombre} {apellidos} tengo {edad} años, y mi correo es {coreo} {isEnabled ? <Text>Hombre</Text> : <Text>Mujer</Text>}</Text>
+                <Text>Mi nombre es {nombre} {apellidos} tengo {edad} años, y mi correo es {coreo} <Text> Sexo:</Text>{isEnabled ? <Text>Mujer</Text> : <Text>Hombre</Text>}</Text>
 
             </Text>
 
@@ -29,7 +39,7 @@ export default function App() {
     }
 
     return (
-        <View>
+        <View >
 
 
             <View style={{ flexDirection: 'row' }}>
@@ -75,7 +85,7 @@ export default function App() {
 
             </View>
 
-            <View>
+            <View style={{ flexDirection: 'row' }}>
                 <Text style={styles.texto}>Indica el Sexo: Hombre </Text>
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
@@ -84,6 +94,7 @@ export default function App() {
                     value={isEnabled}
 
                 />
+                <Text style={styles.texto}>Mujer </Text>
             </View>
 
 
@@ -93,6 +104,7 @@ export default function App() {
                 <Button
                     onPress={printText}
                     title={"Enviar"}
+
                 />
                 <Text>{texto}</Text>
             </View>
@@ -107,6 +119,22 @@ export default function App() {
 
 
 const styles = StyleSheet.create({
+
+    container:{
+
+        flex:1,
+        padding: 30,
+        paddingTop: 100,
+        backgroundColor: '#808080'
+      },
+      botones: {
+        paddingTop: 20,
+        paddingBottom: 20,
+        paddingLeft: 30,
+        paddingRight: 30,
+        borderRadius: 200,
+        //backgroundColor: 'white'
+      },
     texto: {
         color: 'black',
         fontSize: 20,
