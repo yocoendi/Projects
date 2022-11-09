@@ -36,88 +36,83 @@ public class Metodos {
 
 	public static void crearFichero() throws FileNotFoundException {
 
-		try (Scanner sc = new Scanner(System.in)) {
-			PrintWriter salida = null;
-			System.out.println("Introduce el nombre del archivo");
-			String nombreArchivo = sc.nextLine();
+		Scanner sc = new Scanner(System.in);
+		PrintWriter salida = null;
+		System.out.println("Introduce el nombre del archivo");
+		String nombreArchivo = sc.nextLine();
 
-			File fic = new File("c:/ficheros/" + nombreArchivo);
+		File fic = new File("c:/ficheros/" + nombreArchivo);
 
-			salida = new PrintWriter(fic);
-			String cadena;
-			System.out.println("Introduce texto. Para terminar con la escritura introcude la palabra FIN:");
+		salida = new PrintWriter(fic);
+		String cadena;
+		System.out.println("Introduce texto. Para terminar con la escritura introcude la palabra FIN:");
+		cadena = sc.nextLine();
+		while (!cadena.equalsIgnoreCase("FIN")) {
+			salida.println(cadena);
 			cadena = sc.nextLine();
-			while (!cadena.equalsIgnoreCase("FIN")) {
-				salida.println(cadena);
-				cadena = sc.nextLine();
-			}
-
-			salida.flush();
-
-			salida.close();
 		}
+
+		salida.flush();
+
+		salida.close();
 	}
 
 	public static void muestraContenido(File fichero) throws FileNotFoundException, IOException {
 		
 		Scanner sc = new Scanner(System.in);
-			listarDirectorio(fichero);
-
-			System.out.println("Introduce el nombre del archivo que deseas mostrar en pantalla.");
-			String nombreArchivo = sc.nextLine();
-			
-			String cadena;
-			FileReader f = new FileReader("C:\\ficheros\\" + nombreArchivo);
-			
-			BufferedReader b = new BufferedReader(f);
-
-			while ((cadena = b.readLine()) != null) {
-				
-				System.out.println(cadena);
-			}
-
-			b.close();
-			f.close();
-			sc.close();
 		
+		listarDirectorio(fichero);
+
+		System.out.println("Introduce el nombre del archivo que deseas mostrar en pantalla.");
+		String nombreArchivo = sc.nextLine();
+		
+		String cadena;
+		FileReader f = new FileReader("C:\\ficheros\\" + nombreArchivo);
+		
+		BufferedReader b = new BufferedReader(f);
+
+		while ((cadena = b.readLine()) != null) {
+			
+			System.out.println(cadena);
+		}
+
+		b.close();
+		f.close();
 	}
 
 	public static void eliminarFichero(File fichero) {
 		
 		
 		Scanner sc = new Scanner(System.in);
-			listarDirectorio(fichero);
-
-			System.out.println("Introduce el nombre del archivo que deseas eliminar.");
-			String nombreArchivo = sc.nextLine();
-			File archivo = new File("C:\\ficheros\\" + nombreArchivo);
-
-			
-			String opcion = "";
-
-			if (!archivo.exists()) {
-				System.out.println("El archivo data no existe.");
-			} else {
-
-				System.out.println("Estas seguro que deseas eliminar el archivo? S/N");
-				opcion = sc.nextLine();
-				if (opcion.equalsIgnoreCase("S")) {
-					archivo.delete();
-					
-					System.out.println("El archivo data fue eliminado correctamentes.");
-					sc.close();
-				}
-				}
 		
+		listarDirectorio(fichero);
+
+		System.out.println("Introduce el nombre del archivo que deseas eliminar.");
+		String nombreArchivo = sc.nextLine();
+		File archivo = new File("C:\\ficheros\\" + nombreArchivo);
+
+		
+		String opcion = "";
+
+		if (!archivo.exists()) {
+			System.out.println("El archivo data no existe.");
+		} else {
+
+			System.out.println("Estas seguro que deseas eliminar el archivo? S/N");
+			opcion = sc.nextLine();
+			if (opcion.equalsIgnoreCase("S")) {
+				archivo.delete();
+				
+				System.out.println("El archivo data fue eliminado correctamentes.");
+			}
+			}
 
 			
 
 		
 	}
 
-
-
-	public static void copiaContenido(File archivo)  {
+	public static void copiaContenido(File archivo) {
 
 		int car;
 
@@ -127,7 +122,7 @@ public class Metodos {
 				
 				listarDirectorio(archivo);
 
-				System.out.println("Â¿Cual archivo del directorio quieres copiar?");
+				System.out.println("¿Cual archivo del directorio quieres copiar?");
 				String nombreArchivo = sc.nextLine();
 				FileReader f = new FileReader("C:\\ficheros\\" + nombreArchivo);
 
@@ -151,7 +146,6 @@ public class Metodos {
 
 				f.close();
 				fw.close();
-				
 
 				System.out.println("El archivo se ha copiado correctamente.");
 
@@ -161,9 +155,7 @@ public class Metodos {
 
 				System.err.println("Error leyendo/escribiendo fichero");
 			}
-		}
-
-		
+	}
 
 	public static void condicionesArchivos(File fichero) {
 
