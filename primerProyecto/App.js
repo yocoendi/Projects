@@ -22,6 +22,10 @@ export default function App() {
 
     const reseTear = () => {
 
+        setNombre("")
+        setApellidos("")
+        setEdad("")
+        setCorreo("")
         setText("")
         
     }
@@ -138,6 +142,6 @@ const styles = StyleSheet.create({
         height: 20,
         width: 120,
         borderWidth: 1,
-        padding: 4,
+        padding: 1,
     }
 })
