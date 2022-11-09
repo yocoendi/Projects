@@ -56,6 +56,15 @@ export default function App() {
         onChangeText={edad => setEdad(edad)}
       />
       </View>
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.texto}>Hola mi nombre es </Text>
+        <TextInput
+        style={styles.input}
+        placeholder="Nombre"
+        keyboardType="name-phone-pad"
+        onChangeText={apellidos => setApellidos(apellidos)}
+      />
+      </View>
       
       
 
