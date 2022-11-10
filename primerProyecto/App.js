@@ -41,7 +41,7 @@ export default function App() {
     }
 
     function validarEdad(edad) {
-        const reg = /^[0-9]+/;
+        const reg =  /^[+-]?[0-9]+$/;
         if (reg.test(edad)) {
             setValidaEdad(true);
             setEdad(edad);
@@ -107,7 +107,7 @@ export default function App() {
                     }
                     placeholder="Apellidos"
                     keyboardType="default"
-                    onChangeText={apellidos => validaapellido(apellidos)}
+                    onChangeText={apellidos => validarApellidos(apellidos)}
                 />
             </View>
             <View style={styles.campos}>
@@ -135,7 +135,7 @@ export default function App() {
                         }
                     placeholder="correo"
                     keyboardType="email-address"
-                    onChangeText={correo => validacorreo(correo)}
+                    onChangeText={correo => validarCorreo(correo)}
 
                 />
 
