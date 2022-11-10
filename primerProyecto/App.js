@@ -11,7 +11,14 @@ export default function App() {
     const [edad, setEdad] = useState();
     const [coreo, setCorreo] = useState();
     const [texto, setText] = useState('');
-    
+
+    const expresiones = {
+        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+        nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+        password: /^.{4,12}$/, // 4 a 12 digitos.
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+    }
 
 
     const printText = () => {
@@ -22,13 +29,15 @@ export default function App() {
 
     const reseTear = () => {
 
-     
+        setApellidos('')
         setText("")
+       
         
     }
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text style={styles.title}>Formulario</Text>
             <View style={styles.campos}>
                 <Text style={styles.texto}>Nombre</Text>
                 <TextInput
@@ -37,6 +46,7 @@ export default function App() {
                     keyboardType="name-phone-pad"
                     onChangeText={nombre => setNombre(nombre)}
                 />
+               
             </View>
             <View style={styles.campos}>
                 <Text style={styles.texto}>Apellidos</Text>
@@ -63,7 +73,9 @@ export default function App() {
                     placeholder="correo"
                     keyboardType="email-address"
                     onChangeText={correo => setCorreo(correo)}
+                  
                 />
+                
             </View>
             <View style={styles.campos}>
                 <Text>Sexo: Hombre </Text>
@@ -83,7 +95,7 @@ export default function App() {
                 />
                     <Button
                     onPress={reseTear}
-                    title={"Resetear"}
+                    title={"Nuevo formulario"}
                 />
                 
                 
@@ -91,6 +103,7 @@ export default function App() {
             <View>
             <Text>{texto}</Text>
                 {texto===''?null:<Image style={styles.imagen} source={imgs}/>}
+               
             </View>
         </SafeAreaView>
     );
@@ -100,11 +113,13 @@ export default function App() {
 
 }
 
+
 const styles = StyleSheet.create({
 
     container: {
         flex: 1,
         padding: 30,
+        
        
     },
     campos: {
@@ -121,7 +136,15 @@ const styles = StyleSheet.create({
     texto: {
         color: 'black',
         fontSize: 20,
-        width: 90
+        width: 100,
+        textAlign: "center"
+
+    },
+    title: {
+        color: 'black',
+        fontSize: 60,
+        width: 400,
+       
 
     },
     fixToText: {
@@ -143,9 +166,9 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        height: 20,
-        width: 120,
+        height: 35,
+        width: 210,
         borderWidth: 1,
-        padding: 1,
+        padding: 0,
     }
 })
