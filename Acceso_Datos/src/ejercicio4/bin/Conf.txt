@@ -1,0 +1,5 @@
+#Archivo Conf NuevoPassword
+#Fri Oct 28 13:14:38 CEST 2022
+NivelSeguridadMin=8
+MaximoCaracterPass=16
+MinimoCaracterPass=7
