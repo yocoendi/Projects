@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, Button, Text, View, TextInput, Switch , Image } from 'react-native';
+import { StyleSheet, Button, Text, View, TextInput, Switch, Image } from 'react-native';
+import img from './img/thestocks.jpg';
 
 
 
@@ -9,15 +10,14 @@ export default function App() {
     const [apellidos, setApellidos] = useState();
     const [edad, setEdad] = useState();
     const [coreo, setCorreo] = useState();
-
     const [texto, setText] = useState();
-    const [imagen, setImagen] = useState();
+    const [img, setImagen] = useState();
 
     const mostraImagen = () => {
 
         setImagen(
 
-      <Image></Image>
+            < Image source={{ im }} />
 
         )
 
@@ -28,10 +28,8 @@ export default function App() {
 
         setText(
 
-            <Text style={{ flexDirection: 'row' }}>
-
-                <Text>Mi nombre es {nombre} {apellidos} tengo {edad} años, y mi correo es {coreo} <Text> Sexo:</Text>{isEnabled ? <Text>Mujer</Text> : <Text>Hombre</Text>}</Text>
-
+            <Text>
+                <Text>Mi nombre es {nombre} {apellidos} tengo {edad} años, y mi correo es {coreo}. Sexo: {isEnabled ? "Mujer" : "Hombre"}</Text>
             </Text>
 
         )
@@ -81,8 +79,6 @@ export default function App() {
                     onChangeText={correo => setCorreo(correo)}
                 />
 
-
-
             </View>
 
             <View style={{ flexDirection: 'row' }}>
@@ -97,14 +93,10 @@ export default function App() {
                 <Text style={styles.texto}>Mujer </Text>
             </View>
 
-
-
-
             <View style={styles.botones}>
                 <Button
                     onPress={printText}
                     title={"Enviar"}
-
                 />
                 <Text>{texto}</Text>
             </View>
@@ -120,21 +112,21 @@ export default function App() {
 
 const styles = StyleSheet.create({
 
-    container:{
+    container: {
 
-        flex:1,
+        flex: 1,
         padding: 30,
         paddingTop: 100,
         backgroundColor: '#808080'
-      },
-      botones: {
+    },
+    botones: {
         paddingTop: 20,
         paddingBottom: 20,
         paddingLeft: 30,
         paddingRight: 30,
         borderRadius: 200,
         //backgroundColor: 'white'
-      },
+    },
     texto: {
         color: 'black',
         fontSize: 20,
