@@ -20,6 +20,19 @@ export default function App() {
         telefono: /^\d{7,14}$/ // 7 a 14 numeros.
     }
 
+    function validarEdad(edad) {
+		const reg = /^[0-9]+/;
+		if (reg.test(edad)) {
+			setValida(true);
+			setEdad(edad);
+		} else {
+			console.log('Soy una letra');
+			setValida(false);
+		}
+	}
+
+
+
 
     const printText = () => {
 
@@ -63,7 +76,7 @@ export default function App() {
                     style={styles.input}
                     placeholder="Edad"
                     keyboardType="numeric"
-                    onChangeText={edad => setEdad(edad)}
+                    onChangeText={edad => validarEdad(edad)}
                 />
             </View>
             <View style={styles.campos}>
