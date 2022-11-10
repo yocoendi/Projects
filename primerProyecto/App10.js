@@ -53,11 +53,15 @@ export default function App() {
 		}
 	}
 
+
+	
+
 	function validarEdad(edad) {
 		const reg = /^[0-9]+/;
 		if (reg.test(edad)) {
 			setValida(true);
 			setEdad(edad);
+			console.log('Soy un numero');
 		} else {
 			console.log('Soy una letra');
 			setValida(false);

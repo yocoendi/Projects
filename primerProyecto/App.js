@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet,SafeAreaView, Button, Text, View, TextInput, Switch, Image } from 'react-native';
+import { StyleSheet, SafeAreaView, Button, Text, View, TextInput, Switch, Image } from 'react-native';
 import imgs from './img/thestocks.jpg';
 
 
@@ -11,41 +11,71 @@ export default function App() {
     const [edad, setEdad] = useState();
     const [coreo, setCorreo] = useState();
     const [texto, setText] = useState('');
+    const [validanombre, setValidaNombre] = useState(false);
+    const [validaapellido, setValidaApellidos] = useState(false);
+    const [validedad, setValidaEdad] = useState(false);
+    const [validacorreo, setValidaCorreo] = useState(false);
 
-    const expresiones = {
-        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-        nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        password: /^.{4,12}$/, // 4 a 12 digitos.
-        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+
+    
+    function validarNombre(nombre) {
+        const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+        if (reg.test(nombre)) {
+            setValidaNombre(true);
+            setNombre(nombre)
+        } else {
+            setValidaNombre(false);
+          
+        }
+    }
+
+    function validarApellidos(apellidos) {
+        const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+        if (reg.test(apellidos)) {
+            setValidaApellidos(true);
+            setApellidos(apellidos)
+        } else {
+            setValidaApellidos(false);
+          
+        }
     }
 
     function validarEdad(edad) {
-		const reg = /^[0-9]+/;
-		if (reg.test(edad)) {
-			setValida(true);
-			setEdad(edad);
-		} else {
-			console.log('Soy una letra');
-			setValida(false);
-		}
-	}
+        const reg = /^[0-9]+/;
+        if (reg.test(edad)) {
+            setValidaEdad(true);
+            setEdad(edad);
+        } else {
+            setValida(false);
+          
+        }
+    }
+
+    function validarCorreo(correo) {
+        const reg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        if (reg.test(coreo)) {
+            setValidaCorreo(true);
+            setCorreo(correo);
+        } else {
+            setValidaCorreo(false);
+          
+        }
+    }
 
 
 
 
     const printText = () => {
 
-       
+
         setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${coreo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
     }
 
     const reseTear = () => {
 
-        setApellidos('')
         setText("")
-       
-        
+
+
     }
 
     return (
@@ -54,26 +84,41 @@ export default function App() {
             <View style={styles.campos}>
                 <Text style={styles.texto}>Nombre</Text>
                 <TextInput
-                    style={styles.input}
+                         style={validanombre ? (
+                            { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
+                        ) : (
+                            { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
+                        )
+                        }
                     placeholder="Nombre"
                     keyboardType="name-phone-pad"
-                    onChangeText={nombre => setNombre(nombre)}
+                    onChangeText={nombre => validarNombre(nombre)}
                 />
-               
+
             </View>
             <View style={styles.campos}>
                 <Text style={styles.texto}>Apellidos</Text>
                 <TextInput
-                    style={styles.input}
+                    style={validaapellido ? (
+                        { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
+                    ) : (
+                        { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
+                    )
+                    }
                     placeholder="Apellidos"
                     keyboardType="default"
-                    onChangeText={apellidos => setApellidos(apellidos)}
+                    onChangeText={apellidos => validaapellido(apellidos)}
                 />
             </View>
             <View style={styles.campos}>
                 <Text style={styles.texto}>Edad</Text>
                 <TextInput
-                    style={styles.input}
+                    style={validedad ? (
+                        { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
+                    ) : (
+                        { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
+                    )
+                    }
                     placeholder="Edad"
                     keyboardType="numeric"
                     onChangeText={edad => validarEdad(edad)}
@@ -82,13 +127,18 @@ export default function App() {
             <View style={styles.campos}>
                 <Text style={styles.texto}>Correo</Text>
                 <TextInput
-                    style={styles.input}
+                        style={validacorreo ? (
+                            { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
+                        ) : (
+                            { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
+                        )
+                        }
                     placeholder="correo"
                     keyboardType="email-address"
-                    onChangeText={correo => setCorreo(correo)}
-                  
+                    onChangeText={correo => validacorreo(correo)}
+
                 />
-                
+
             </View>
             <View style={styles.campos}>
                 <Text>Sexo: Hombre </Text>
@@ -106,17 +156,17 @@ export default function App() {
                     onPress={printText}
                     title={"Enviar"}
                 />
-                    <Button
+                <Button
                     onPress={reseTear}
                     title={"Nuevo formulario"}
                 />
-                
-                
+
+
             </View>
             <View>
-            <Text>{texto}</Text>
-                {texto===''?null:<Image style={styles.imagen} source={imgs}/>}
-               
+                <Text>{texto}</Text>
+                {texto === '' ? null : <Image style={styles.imagen} source={imgs} />}
+
             </View>
         </SafeAreaView>
     );
@@ -127,13 +177,15 @@ export default function App() {
 }
 
 
+
+
 const styles = StyleSheet.create({
 
     container: {
         flex: 1,
         padding: 30,
-        
-       
+
+
     },
     campos: {
         flexDirection: 'row',
@@ -142,7 +194,7 @@ const styles = StyleSheet.create({
     botones: {
         paddingTop: 20,
         paddingBottom: 20,
- 
+
         borderRadius: 200,
         //backgroundColor: 'white'
     },
@@ -157,22 +209,22 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 60,
         width: 400,
-       
+
 
     },
     fixToText: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-      },
+    },
     textoNombre: {
         color: 'blue',
         fontSize: 20,
         paddingTop: 50
     },
 
-    imagen:{
+    imagen: {
 
-        width:"100%",
+        width: "100%",
         height: 200
 
 
