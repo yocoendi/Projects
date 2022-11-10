@@ -41,18 +41,18 @@ export default function App() {
     }
 
     function validarEdad(edad) {
-        const reg =  /^[+-]?[0-9]+$/;
+        const reg =  /^[0-9]+$/;
         if (reg.test(edad)) {
             setValidaEdad(true);
             setEdad(edad);
         } else {
-            setValida(false);
+            setValidaEdad(false);
           
         }
     }
 
     function validarCorreo(correo) {
-        const reg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        const reg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,40})+$/ ;
         if (reg.test(coreo)) {
             setValidaCorreo(true);
             setCorreo(correo);
