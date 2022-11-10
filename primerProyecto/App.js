@@ -22,10 +22,7 @@ export default function App() {
 
     const reseTear = () => {
 
-        setNombre("")
-        setApellidos("")
-        setEdad("")
-        setCorreo("")
+     
         setText("")
         
     }
