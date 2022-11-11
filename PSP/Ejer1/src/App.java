@@ -1,16 +1,3 @@
-
-/*En esta actividad se utilizarán las librerías ProcessBuilder, Process y Runtime 
-Realiza un programa Java que lea por teclado en un proceso repetitivo datos del alumnado: 
-Los datos del alumnado a leer son el nombre y la edad. 
-El proceso repetitivo finaliza cuando el nombre sea = *. 
-Si el nombre es un blanco o su longitud de caracteres es 0, se debe volver a leer. 
-Si la edad no está comprendida entre 1 y 99, se debe volver a leer. 
-Igualmente se vuelve a leer la edad si se introduce una cadena en vez de un número en dicho campo. 
-Se debe visualizar mensajes al pedir los datos y cuando no son correctos. 
-Una vez finalizado el proceso de lectura de datos, se debe mostrar al final del mensaje, el número de la totalidad del alumnado leído, el nombre del que tiene más edad y del que tiene menor edad. */
-import java.lang.ProcessBuilder;
-import java.lang.Process;
-import java.lang.Runtime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -75,7 +62,9 @@ public class App {
                 sc.next();
             }
         } while (N < desde || N > hasta);
+        sc.close();
         return N;
+        
 
     }
 
@@ -88,6 +77,7 @@ public class App {
                 name = sc.nextLine();
           
         } while (name.isBlank());
+        sc.close();
         return name;
 
     }

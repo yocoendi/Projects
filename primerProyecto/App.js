@@ -28,6 +28,8 @@ export default function App() {
           
         }
         setNombre(nombre)
+        if(nombre=="")
+        setValidaNombre(true)
     }
 
     function validarApellidos(apellidos) {
@@ -40,6 +42,8 @@ export default function App() {
           
         }
         setApellidos(apellidos)
+        if(apellidos=="")
+        setValidaApellidos(true)
     }
 
     function validarEdad(edad) {
@@ -52,6 +56,8 @@ export default function App() {
           
         }
         setEdad(edad);
+        if(edad=="")
+        setValidaEdad(true)
     }
 
     function validarCorreo(correo) {
@@ -64,6 +70,8 @@ export default function App() {
           
         }
         setCorreo(correo);
+        if(correo=="")
+        setValidaCorreo(true)
     }
 
   
@@ -74,7 +82,14 @@ export default function App() {
     const printText = () => {
 
 
-        setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
+if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorreo == true && validaedad == true && validanombre == true && validaapellido == true )
+{
+    setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
+}else{
+    alert("Los campos estan incorrectos")
+}
+
+       
     }
 
     const reseTear = () => {
@@ -84,6 +99,10 @@ export default function App() {
         setApellidos("")
         setEdad("")
         setCorreo("")
+        setValidaNombre(true)
+        setValidaApellidos(true)
+        setValidaEdad(true)
+        setValidaCorreo(true)
         
 
 
@@ -179,7 +198,7 @@ export default function App() {
                 />
                 <Button
                     onPress={reseTear}
-                    title={"Nuevo formulario"}
+                    title={"Reset formulario"}
                 />
 
 

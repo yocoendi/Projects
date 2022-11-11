@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class App {
+    
     public static void main(String[] args) {
         String cadena = null;
         boolean isPalindromo = false;
@@ -11,7 +12,7 @@ public class App {
                 isPalindromo ? "La cadena introducida es un palindromo" : "La cadena introducida no es un palindromo");
     }
 
-    private static String getCadena() {
+    public static String getCadena() {
         Scanner sc = new Scanner(System.in);
         String cadena;
         do {
@@ -28,8 +29,7 @@ public class App {
     }
 
     public static boolean setPalindromo(String cadena) {
-        cadena = cadena.toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o")
-                .replace("ú", "u").replace(" ", "").replace(".", "").replace(",", "");
+        cadena = cadena.toLowerCase().replace(" ", "");
         String invertida = new StringBuilder(cadena).reverse().toString();
         System.out.println(invertida);
         return invertida.equals(cadena);
