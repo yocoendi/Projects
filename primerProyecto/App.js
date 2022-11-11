@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { StyleSheet, SafeAreaView, Button, Text, View, TextInput, Switch, Image } from 'react-native';
 import imgs from './img/thestocks.jpg';
 
-
-
 export default function App() {
     const [isEnabled, setIsEnabled] = useState(null);
     const [nombre, setNombre] = useState();
@@ -16,14 +14,13 @@ export default function App() {
     const [validaedad, setValidaEdad] = useState(true);
     const [validacorreo, setValidaCorreo] = useState(true);
 
+
     function validarNombre(nombre) {
         const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
         if (reg.test(nombre)) {
             setValidaNombre(true);
-
         } else {
             setValidaNombre(false);
-
         }
         setNombre(nombre)
         if (nombre == "")
@@ -34,10 +31,8 @@ export default function App() {
         const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
         if (reg.test(apellidos)) {
             setValidaApellidos(true);
-
         } else {
             setValidaApellidos(false);
-
         }
         setApellidos(apellidos)
         if (apellidos == "")
@@ -48,10 +43,8 @@ export default function App() {
         const reg = /^[0-9]+$/;
         if (reg.test(edad)) {
             setValidaEdad(true);
-
         } else {
             setValidaEdad(false);
-
         }
         setEdad(edad);
         if (edad == "")
@@ -77,8 +70,9 @@ export default function App() {
 
         if (nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorreo == true && validaedad == true && validanombre == true && validaapellido == true) {
             setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
+            alert("El formulario se ha enviado correctamente.")
         } else {
-            alert("Los campos estan incorrectos")
+            alert("Los campos estan incorrectos,rellene de nuevo")
         }
 
 
