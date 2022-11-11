@@ -9,11 +9,11 @@ export default function App() {
     const [nombre, setNombre] = useState();
     const [apellidos, setApellidos] = useState();
     const [edad, setEdad] = useState();
-    const [coreo, setCorreo] = useState();
+    const [correo, setCorreo] = useState();
     const [texto, setText] = useState('');
     const [validanombre, setValidaNombre] = useState(false);
     const [validaapellido, setValidaApellidos] = useState(false);
-    const [validedad, setValidaEdad] = useState(false);
+    const [validaedad, setValidaEdad] = useState(false);
     const [validacorreo, setValidaCorreo] = useState(false);
     const [estilo, setEstilo] = useState('');
 
@@ -53,7 +53,7 @@ export default function App() {
 
     function validarCorreo(correo) {
         const reg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,40})+$/;
-        if (reg.test(coreo)) {
+        if (reg.test(correo)) {
             setValidaCorreo(true);
             setCorreo(correo);
         } else {
@@ -77,6 +77,9 @@ export default function App() {
 
         setText("")
         setNombre("")
+        setApellidos("")
+        setEdad("")
+        setCorreo("")
 
 
     }
@@ -112,12 +115,13 @@ export default function App() {
                     placeholder="Apellidos"
                     keyboardType="default"
                     onChangeText={apellidos => validarApellidos(apellidos)}
+                    value={apellidos}
                 />
             </View>
             <View style={styles.campos}>
                 <Text style={styles.texto}>Edad</Text>
                 <TextInput
-                    style={validedad ? (
+                    style={validaedad ? (
                         { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
                     ) : (
                         { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
@@ -126,6 +130,7 @@ export default function App() {
                     placeholder="Edad"
                     keyboardType="numeric"
                     onChangeText={edad => validarEdad(edad)}
+                    value={edad}
                 />
             </View>
             <View style={styles.campos}>
@@ -140,6 +145,7 @@ export default function App() {
                     placeholder="correo"
                     keyboardType="email-address"
                     onChangeText={correo => validarCorreo(correo)}
+                    value={correo}
 
                 />
 
