@@ -71,6 +71,7 @@ export default function App() {
         if (nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorreo == true && validaedad == true && validanombre == true && validaapellido == true) {
             setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
             alert("El formulario se ha enviado correctamente.")
+            
         } else {
             alert("Los campos estan incorrectos,rellene de nuevo")
         }
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 30,
-        marginRight: 3,
+        marginRight: 20,
     },
     separator: {
         marginVertical: 8,
@@ -208,7 +209,14 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         width: 100,
-        textAlign: "center"
+       
+        
+    },
+    campos: {
+        flexDirection: 'row',
+        marginVertical: 10,
+        marginLeft:1
+       
     },
     title: {
         color: 'black',
