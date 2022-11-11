@@ -88,10 +88,14 @@ export default function App() {
 
 
     }
+    const Separator = () => (
+        <View style={styles.separator} />
+      );
 
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Formulario</Text>
+            <Separator />
             <View style={styles.campos}>
                 <Text style={styles.texto}>Nombre</Text>
                 <TextInput
@@ -108,6 +112,7 @@ export default function App() {
                 />
 
             </View>
+        
             <View style={styles.campos}>
                 <Text style={styles.texto}>Apellidos</Text>
                 <TextInput
@@ -156,15 +161,16 @@ export default function App() {
 
             </View>
             <View style={styles.campos}>
-                <Text>Hombre</Text>
+                <Text style={styles.texto}>Hombre</Text>
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
                     thumbColor={isEnabled ? 'blue' : 'red'}
                     onValueChange={() => setIsEnabled((previousState) => !previousState)}
                     value={isEnabled}
                 />
-                <Text>Mujer</Text>
+                <Text style={styles.texto}>Mujer</Text>
             </View>
+            <Separator />
 
             <View style={styles.fixToText}>
                 <Button
@@ -199,9 +205,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 30,
-
-
     },
+
+    separator: {
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+      },
     campos: {
         flexDirection: 'row',
         marginVertical: 10
@@ -218,6 +228,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         width: 100,
         textAlign: "center"
+    
 
     },
     title: {
