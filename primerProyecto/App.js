@@ -22,44 +22,48 @@ export default function App() {
         const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
         if (reg.test(nombre)) {
             setValidaNombre(true);
-            setNombre(nombre)
+            
         } else {
             setValidaNombre(false);
           
         }
+        setNombre(nombre)
     }
 
     function validarApellidos(apellidos) {
         const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
         if (reg.test(apellidos)) {
             setValidaApellidos(true);
-            setApellidos(apellidos)
+            
         } else {
             setValidaApellidos(false);
           
         }
+        setApellidos(apellidos)
     }
 
     function validarEdad(edad) {
         const reg =  /^[0-9]+$/;
         if (reg.test(edad)) {
             setValidaEdad(true);
-            setEdad(edad);
+            
         } else {
             setValidaEdad(false);
           
         }
+        setEdad(edad);
     }
 
     function validarCorreo(correo) {
         const reg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,40})+$/;
         if (reg.test(correo)) {
             setValidaCorreo(true);
-            setCorreo(correo);
+            
         } else {
             setValidaCorreo(false);
           
         }
+        setCorreo(correo);
     }
 
   
@@ -76,10 +80,10 @@ export default function App() {
     const reseTear = () => {
 
         setText("")
-        setNombre(undefined)
-        setApellidos(undefined)
-        setEdad(undefined)
-        setCorreo(undefined)
+        setNombre("")
+        setApellidos("")
+        setEdad("")
+        setCorreo("")
         
 
 
@@ -92,9 +96,9 @@ export default function App() {
                 <Text style={styles.texto}>Nombre</Text>
                 <TextInput
                          style={validanombre ? (
-                            { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
+                            { borderWidth: 2, height: 35,width: 210, borderColor: 'green'}
                         ) : (
-                            { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
+                            { borderWidth: 2, height: 35,width: 210, borderColor: 'red'}
                         )
                         }
                     placeholder="Nombre"
@@ -152,14 +156,14 @@ export default function App() {
 
             </View>
             <View style={styles.campos}>
-                <Text style={styles.textoschitch}>Hombre</Text>
+                <Text>Hombre</Text>
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
                     thumbColor={isEnabled ? 'blue' : 'red'}
                     onValueChange={() => setIsEnabled((previousState) => !previousState)}
                     value={isEnabled}
                 />
-                <Text style={styles.textoschitch}>Mujer</Text>
+                <Text>Mujer</Text>
             </View>
 
             <View style={styles.fixToText}>
@@ -238,7 +242,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         width: 100,
         textAlign: "center",
-        marginLeft:35
+       
 
     },
 
