@@ -4,34 +4,28 @@ import java.util.Scanner;
 public class Ejercicio1 {
 
 	public static void main(String[] args) {
-		 
-		 horaDia("¿Cual es su nombre?");
-
-	}
-		
-	public static void horaDia (String mensaje) {
-		Scanner sc = new Scanner(System.in);
-		 
-		String name = sc.nextLine();
 
 		LocalDateTime now = LocalDateTime.now();
 		String resultado = "";
-	
-	if (now.getHour() > 0 && now.getHour() <= 12) {
-		
-	System.out.println( resultado="Buenos dias " + name);   
-	
-	}else if (now.getHour() > 12 && now.getHour() < 20) {
-		
-	System.out.println(resultado="Buenos tardes " + name);
-		
-	}else if (now.getHour() > 21 && now.getHour() < 00) {
-		
-		System.out.println(resultado="Buenos noches " + name);
-		
-	}
+
+		Scanner sc = new Scanner(System.in);
+
+		String name = sc.nextLine();
+
+		if (now.getHour() > 0 && now.getHour() <= 12) {
+
+			System.out.println(resultado = "Buenos dias " + name);
+
+		} else if (now.getHour() > 12 && now.getHour() < 20) {
+
+			System.out.println(resultado = "Buenos tardes " + name);
+
+		} else if (now.getHour() > 21 && now.getHour() < 00) {
+
+			System.out.println(resultado = "Buenos noches " + name);
+
+		}
 
 	}
-
 
 }
