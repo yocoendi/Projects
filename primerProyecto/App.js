@@ -70,16 +70,17 @@ export default function App() {
     const printText = () => {
 
 
-        setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${coreo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
+        setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
     }
 
     const reseTear = () => {
 
         setText("")
-        setNombre("")
-        setApellidos("")
-        setEdad("")
-        setCorreo("")
+        setNombre(undefined)
+        setApellidos(undefined)
+        setEdad(undefined)
+        setCorreo(undefined)
+        
 
 
     }
@@ -151,14 +152,14 @@ export default function App() {
 
             </View>
             <View style={styles.campos}>
-                <Text>Sexo: Hombre </Text>
+                <Text style={styles.textoschitch}>Hombre</Text>
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
                     thumbColor={isEnabled ? 'blue' : 'red'}
                     onValueChange={() => setIsEnabled((previousState) => !previousState)}
                     value={isEnabled}
                 />
-                <Text>Mujer </Text>
+                <Text style={styles.textoschitch}>Mujer</Text>
             </View>
 
             <View style={styles.fixToText}>
@@ -231,6 +232,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         paddingTop: 50
     },
+
+    textoschitch:{
+        color: 'black',
+        fontSize: 20,
+        width: 100,
+        textAlign: "center",
+        marginLeft:35
+
+    },
+
 
     imagen: {
 
