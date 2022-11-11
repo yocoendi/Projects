@@ -1,5 +1,6 @@
-package ejercicio4.src;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Scanner;
 public class Fibonacci1 {
 
 	public static void main(String[] args) {

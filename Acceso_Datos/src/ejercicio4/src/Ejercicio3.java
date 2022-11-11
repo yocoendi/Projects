@@ -1,4 +1,4 @@
-package ejercicio4.src;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -41,7 +41,7 @@ public class Ejercicio3 {
 	
 	
 	
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 		
 		
 		public static Properties config = configuracionBD(".\\src\\fichero\\configuracion");
@@ -56,10 +56,10 @@ public class Ejercicio3 {
 				
 				datos.load(reader);
 			} catch (FileNotFoundException e) {
-				// TODO Bloque catch generado automáticamente
+				// TODO Bloque catch generado automï¿½ticamente
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Bloque catch generado automáticamente
+				// TODO Bloque catch generado automï¿½ticamente
 				e.printStackTrace();
 			}
 			return datos;

@@ -15,7 +15,7 @@ export default function App() {
     const [validaapellido, setValidaApellidos] = useState(false);
     const [validedad, setValidaEdad] = useState(false);
     const [validacorreo, setValidaCorreo] = useState(false);
-
+    const [estilo, setEstilo] = useState('');
 
     
     function validarNombre(nombre) {
@@ -60,6 +60,12 @@ export default function App() {
             setValidaCorreo(false);
           
         }
+    }
+
+    const styles1  = () => {
+
+        setEstilo()
+
     }
 
 

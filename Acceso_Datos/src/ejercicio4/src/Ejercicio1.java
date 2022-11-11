@@ -1,4 +1,4 @@
-package ejercicio4.src;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,7 +10,7 @@ public class Ejercicio1 {
 
 		 LocalDateTime now = LocalDateTime.now();
 		 
-		 System.out.println("¿Cual es su nombre?");
+		 System.out.println("ï¿½Cual es su nombre?");
 		 
 		 Scanner sc = new Scanner(System.in);
 		 
