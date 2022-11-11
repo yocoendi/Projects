@@ -4,10 +4,10 @@ import imgs from './img/thestocks.jpg';
 
 export default function App() {
     const [isEnabled, setIsEnabled] = useState(null);
-    const [nombre, setNombre] = useState();
-    const [apellidos, setApellidos] = useState();
-    const [edad, setEdad] = useState();
-    const [correo, setCorreo] = useState();
+    const [nombre, setNombre] = useState("");
+    const [apellidos, setApellidos] = useState("");
+    const [edad, setEdad] = useState("");
+    const [correo, setCorreo] = useState("");
     const [texto, setText] = useState('');
     const [validanombre, setValidaNombre] = useState(true);
     const [validaapellido, setValidaApellidos] = useState(true);
