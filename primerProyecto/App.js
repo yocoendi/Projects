@@ -11,85 +11,77 @@ export default function App() {
     const [edad, setEdad] = useState();
     const [correo, setCorreo] = useState();
     const [texto, setText] = useState('');
-    const [validanombre, setValidaNombre] = useState(false);
-    const [validaapellido, setValidaApellidos] = useState(false);
-    const [validaedad, setValidaEdad] = useState(false);
-    const [validacorreo, setValidaCorreo] = useState(false);
-    
+    const [validanombre, setValidaNombre] = useState(true);
+    const [validaapellido, setValidaApellidos] = useState(true);
+    const [validaedad, setValidaEdad] = useState(true);
+    const [validacorreo, setValidaCorreo] = useState(true);
 
-    
     function validarNombre(nombre) {
         const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
         if (reg.test(nombre)) {
             setValidaNombre(true);
-            
+
         } else {
             setValidaNombre(false);
-          
+
         }
         setNombre(nombre)
-        if(nombre=="")
-        setValidaNombre(true)
+        if (nombre == "")
+            setValidaNombre(true)
     }
 
     function validarApellidos(apellidos) {
         const reg = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
         if (reg.test(apellidos)) {
             setValidaApellidos(true);
-            
+
         } else {
             setValidaApellidos(false);
-          
+
         }
         setApellidos(apellidos)
-        if(apellidos=="")
-        setValidaApellidos(true)
+        if (apellidos == "")
+            setValidaApellidos(true)
     }
 
     function validarEdad(edad) {
-        const reg =  /^[0-9]+$/;
+        const reg = /^[0-9]+$/;
         if (reg.test(edad)) {
             setValidaEdad(true);
-            
+
         } else {
             setValidaEdad(false);
-          
+
         }
         setEdad(edad);
-        if(edad=="")
-        setValidaEdad(true)
+        if (edad == "")
+            setValidaEdad(true)
     }
 
     function validarCorreo(correo) {
         const reg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,40})+$/;
         if (reg.test(correo)) {
             setValidaCorreo(true);
-            
+
         } else {
             setValidaCorreo(false);
-          
+
         }
         setCorreo(correo);
-        if(correo=="")
-        setValidaCorreo(true)
+        if (correo == "")
+            setValidaCorreo(true)
     }
-
-  
-
-
-
 
     const printText = () => {
 
 
-if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorreo == true && validaedad == true && validanombre == true && validaapellido == true )
-{
-    setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
-}else{
-    alert("Los campos estan incorrectos")
-}
+        if (nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorreo == true && validaedad == true && validanombre == true && validaapellido == true) {
+            setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
+        } else {
+            alert("Los campos estan incorrectos")
+        }
 
-       
+
     }
 
     const reseTear = () => {
@@ -103,13 +95,13 @@ if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorre
         setValidaApellidos(true)
         setValidaEdad(true)
         setValidaCorreo(true)
-        
+
 
 
     }
     const Separator = () => (
         <View style={styles.separator} />
-      );
+    );
 
     return (
         <SafeAreaView style={styles.container}>
@@ -118,27 +110,25 @@ if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorre
             <View style={styles.campos}>
                 <Text style={styles.texto}>Nombre</Text>
                 <TextInput
-                         style={validanombre ? (
-                            { borderWidth: 2, height: 35,width: 210, borderColor: 'green'}
-                        ) : (
-                            { borderWidth: 2, height: 35,width: 210, borderColor: 'red'}
-                        )
-                        }
+                    style={validanombre ? (
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'black' }
+                    ) : (
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'red' }
+                    )
+                    }
                     placeholder="Nombre"
                     keyboardType="name-phone-pad"
                     onChangeText={nombre => validarNombre(nombre)}
                     value={nombre}
                 />
-
             </View>
-        
             <View style={styles.campos}>
                 <Text style={styles.texto}>Apellidos</Text>
                 <TextInput
                     style={validaapellido ? (
-                        { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'black' }
                     ) : (
-                        { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'red' }
                     )
                     }
                     placeholder="Apellidos"
@@ -151,9 +141,9 @@ if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorre
                 <Text style={styles.texto}>Edad</Text>
                 <TextInput
                     style={validaedad ? (
-                        { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'black' }
                     ) : (
-                        { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'red' }
                     )
                     }
                     placeholder="Edad"
@@ -165,19 +155,17 @@ if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorre
             <View style={styles.campos}>
                 <Text style={styles.texto}>Correo</Text>
                 <TextInput
-                        style={validacorreo ? (
-                            { borderWidth: 2, height: 35,width: 210, borderColor: 'green' }
-                        ) : (
-                            { borderWidth: 2, height: 35,width: 210, borderColor: 'red' }
-                        )
-                        }
+                    style={validacorreo ? (
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'black' }
+                    ) : (
+                        { borderWidth: 2, height: 35, width: 210, borderColor: 'red' }
+                    )
+                    }
                     placeholder="correo"
                     keyboardType="email-address"
                     onChangeText={correo => validarCorreo(correo)}
                     value={correo}
-
                 />
-
             </View>
             <View style={styles.campos}>
                 <Text style={styles.texto}>Hombre</Text>
@@ -190,7 +178,6 @@ if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorre
                 <Text style={styles.texto}>Mujer</Text>
             </View>
             <Separator />
-
             <View style={styles.fixToText}>
                 <Button
                     onPress={printText}
@@ -200,66 +187,48 @@ if( nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorre
                     onPress={reseTear}
                     title={"Reset formulario"}
                 />
-
-
             </View>
             <View>
                 <Text>{texto}</Text>
                 {texto === '' ? null : <Image style={styles.imagen} source={imgs} />}
-
             </View>
         </SafeAreaView>
     );
 
 
-
-
 }
-
-
-
 
 const styles = StyleSheet.create({
 
     container: {
         flex: 1,
         padding: 30,
+        marginRight: 3,
     },
-
     separator: {
         marginVertical: 8,
         borderBottomColor: '#737373',
         borderBottomWidth: StyleSheet.hairlineWidth,
-      },
-    campos: {
-        flexDirection: 'row',
-        marginVertical: 10
-    },
-    botones: {
-        paddingTop: 20,
-        paddingBottom: 20,
-
-        borderRadius: 200,
-        //backgroundColor: 'white'
     },
     texto: {
         color: 'black',
         fontSize: 20,
         width: 100,
         textAlign: "center"
-    
-
     },
     title: {
         color: 'black',
-        fontSize: 60,
-        width: 400,
-
+        fontSize: 50,
+        width: 300,
+        marginRight: 20,
+        backgroundColor: 'blue',
+        textAlign: "center",
 
     },
     fixToText: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
+        padding: 20
     },
     textoNombre: {
         color: 'blue',
@@ -267,24 +236,17 @@ const styles = StyleSheet.create({
         paddingTop: 50
     },
 
-    textoschitch:{
+    textoschitch: {
         color: 'black',
         fontSize: 20,
         width: 100,
         textAlign: "center",
-       
-
     },
-
-
     imagen: {
 
         width: "100%",
         height: 200
-
-
     },
-
     input: {
         height: 35,
         width: 210,
