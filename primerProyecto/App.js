@@ -163,14 +163,14 @@ export default function App() {
                 />
             </View>
             <View style={styles.campos}>
-                <Text style={styles.texto}>Hombre</Text>
+                <Text style={styles.textoSexo}>Hombre</Text>
                 <Switch
                     trackColor={{ false: 'red', true: 'blue' }}
                     thumbColor={isEnabled ? 'blue' : 'red'}
                     onValueChange={() => setIsEnabled((previousState) => !previousState)}
                     value={isEnabled}
                 />
-                <Text style={styles.texto}>Mujer</Text>
+                <Text style={styles.textoSexo}>Mujer</Text>
             </View>
             <Separator />
             <View style={styles.fixToText}>
@@ -209,6 +209,15 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         width: 100,
+       
+        
+    },
+    textoSexo: {
+        color: 'black',
+        fontSize: 20,
+        width: 100,
+        textAlign: "center",
+        marginLeft: 15
        
         
     },
