@@ -3,11 +3,6 @@ import java.util.Scanner;
 
 public class Ejercicio1 {
 
-	
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 
 		LocalDateTime now = LocalDateTime.now();
