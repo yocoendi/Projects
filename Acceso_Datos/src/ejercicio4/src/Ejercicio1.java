@@ -5,15 +5,14 @@ public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		 
-		 Scanner sc = new Scanner(System.in);
-		 
-		 String name = sc.nextLine();
-		 
 		 horaDia("¿Cual es su nombre?");
 
 	}
 		
-	public static horaDia (String mensaje) {
+	public static void horaDia (String mensaje) {
+		Scanner sc = new Scanner(System.in);
+		 
+		String name = sc.nextLine();
 
 		LocalDateTime now = LocalDateTime.now();
 		String resultado = "";
