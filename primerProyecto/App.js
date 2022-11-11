@@ -15,7 +15,7 @@ export default function App() {
     const [validaapellido, setValidaApellidos] = useState(false);
     const [validaedad, setValidaEdad] = useState(false);
     const [validacorreo, setValidaCorreo] = useState(false);
-    const [estilo, setEstilo] = useState('');
+    
 
     
     function validarNombre(nombre) {
