@@ -52,7 +52,7 @@ export default function App() {
     }
 
     function validarCorreo(correo) {
-        const reg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,40})+$/ ;
+        const reg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,40})+$/;
         if (reg.test(coreo)) {
             setValidaCorreo(true);
             setCorreo(correo);
@@ -62,11 +62,7 @@ export default function App() {
         }
     }
 
-    const styles1  = () => {
-
-        setEstilo()
-
-    }
+  
 
 
 
@@ -80,6 +76,7 @@ export default function App() {
     const reseTear = () => {
 
         setText("")
+        setNombre("")
 
 
     }
@@ -99,6 +96,7 @@ export default function App() {
                     placeholder="Nombre"
                     keyboardType="name-phone-pad"
                     onChangeText={nombre => validarNombre(nombre)}
+                    value={nombre}
                 />
 
             </View>
