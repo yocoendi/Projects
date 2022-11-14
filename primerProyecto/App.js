@@ -6,7 +6,7 @@ export default function App() {
     const [isEnabled, setIsEnabled] = useState(null);
     const [nombre, setNombre] = useState("");
     const [apellidos, setApellidos] = useState("");
-    const [edad, setEdad] = useState("");
+    const [edad, setEdad] = useState(null);
     const [correo, setCorreo] = useState("");
     const [texto, setText] = useState('');
     const [validanombre, setValidaNombre] = useState(true);
@@ -71,12 +71,9 @@ export default function App() {
         if (nombre != '' && correo != '' && edad != '' && apellidos != '' && validacorreo == true && validaedad == true && validanombre == true && validaapellido == true) {
             setText(`Mi nombre es ${nombre} ${apellidos} tengo ${edad} años, y mi correo es ${correo}. Sexo: ${isEnabled ? "Mujer" : "Hombre"}`)
             alert("El formulario se ha enviado correctamente.")
-            
         } else {
             alert("Los campos estan incorrectos,rellene de nuevo")
         }
-
-
     }
 
     const reseTear = () => {
