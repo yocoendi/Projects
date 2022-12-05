@@ -47,7 +47,7 @@ export default function App() {
             setValidaEdad(false);
         }
         setEdad(edad);
-        if (edad == "")
+        if (edad == null)
             setValidaEdad(true)
     }
 
@@ -77,7 +77,6 @@ export default function App() {
     }
 
     const reseTear = () => {
-
         setText("")
         setNombre("")
         setApellidos("")
@@ -87,9 +86,6 @@ export default function App() {
         setValidaApellidos(true)
         setValidaEdad(true)
         setValidaCorreo(true)
-
-
-
     }
     const Separator = () => (
         <View style={styles.separator} />
