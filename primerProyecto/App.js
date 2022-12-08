@@ -3,23 +3,13 @@ import { Button, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Button
-        title="Jorge"
-        onPress={() =>  ()}
-      />
-       <Button
-        title="Antonio"
-        onPress={() => ()}
-      />
-       <Button
-        title="Dani"
-        onPress={() => ()}
-      />
-      
+   <Text>hello!</Text>
      
     </View>
     
@@ -44,7 +34,7 @@ function SettingsScreen() {
   );
 }
 
-const style
+
 
 const Tab = createBottomTabNavigator();
 
@@ -52,6 +42,16 @@ export default function App() {
 
   return (
     <NavigationContainer>
+
+      <Stack.Navigator initialRouteName="home">
+        <Stack.Screen name="home" component={HomeScreen}/>
+        
+      </Stack.Navigator>
+
+
+
+
+
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -85,24 +85,5 @@ export default function App() {
 
 }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      marginHorizontal: 16,
-    },
-    title: {
-      textAlign: 'center',
-      marginVertical: 8,
-    },
-    fixToText: {
-      flexDirection: 'row',
-      justifyContent: 'space-evenly',
-    },
-    separator: {
-      marginVertical: 8,
-      borderBottomColor: '#737373',
-      borderBottomWidth: StyleSheet.hairlineWidth,
-    },
-  });
+
 
