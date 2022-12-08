@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { visitors } from '@babel/traverse';
 
 function HomeScreen({ navigation }) {
     return (
@@ -32,7 +33,7 @@ function HomeScreen({ navigation }) {
 function ProfilePrincipal({ route }) {
     const { userName, firstName, lastName, edad } = route.params
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={styles.view}>
             <Text>{userName},{firstName},{lastName},{edad}</Text>
         </View>
     );
@@ -40,7 +41,7 @@ function ProfilePrincipal({ route }) {
 
 function Ajustes() {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={styles.view}>
             <Text>Ajustes</Text>
         </View>
 
@@ -50,7 +51,7 @@ function Ajustes() {
 
 function GrupoHome() {
     return (
-        <Stack.Navigator inicialRouteName="Profile">
+        <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Lista de Contactos" }} />
             <Stack.Screen name="Profile" component={ProfilePrincipal} options={{ title: "Datos de Contacto" }} />
         </Stack.Navigator>
@@ -107,10 +108,12 @@ const styles = StyleSheet.create({
        
     },
 
-    textoNombre: {
-        color: 'blue',
-        fontSize: 20,
-        paddingTop: 50
+    view: {
+
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center'
+
     }
 
 })
