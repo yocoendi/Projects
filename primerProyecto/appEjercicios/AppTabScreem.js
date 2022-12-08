@@ -40,14 +40,10 @@ export default function App() {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = focused
-                ? 'home'
-                : 'home-outline';
+              iconName = focused ? 'home': 'home-outline';
             } else if (route.name === 'Settings') {
               iconName = focused ? 'bandage' : 'bandage-outline';
-            } else if (route.name === 'Cuenta') {
-              iconName = focused ? 'ios-finger-print' : 'ios-finger-print-outline';
-            }
+            } 
 
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
