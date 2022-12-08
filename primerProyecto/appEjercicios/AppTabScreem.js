@@ -9,20 +9,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-   <Text>hello!</Text>
-     
+   <Text>hello!</Text> 
     </View>
-    
-    
     
   );
 }
-
-
-    
-
-
-
 
 
 function SettingsScreen() {
