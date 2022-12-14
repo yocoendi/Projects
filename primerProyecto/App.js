@@ -14,15 +14,15 @@ function HomeScreen({ navigation }) {
                 <Text style={styles.texto}>Dani</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Profile", { userName: 'Daniel', firstName: 'Camacho', lastName: 'Moraleda', edad: 44 })}>
+            <TouchableOpacity onPress={() => navigation.navigate("Profile", { userName: 'Jorge', firstName: 'Camacho', lastName: 'Moraleda', edad: 44 })}>
                 <Text style={styles.texto}>Jorge</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Profile", { userName: 'Daniel', firstName: 'Camacho', lastName: 'Moraleda', edad: 19 })}>
+            <TouchableOpacity onPress={() => navigation.navigate("Profile", { userName: 'Carlos', firstName: 'Camacho', lastName: 'Moraleda', edad: 19 })}>
                 <Text style={styles.texto}>Carlos</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Profile", { userName: 'Daniel', firstName: 'Camacho', lastName: 'Moraleda', edad: 19 })}>
+            <TouchableOpacity onPress={() => navigation.navigate("Profile", { userName: 'Lucas', firstName: 'Camacho', lastName: 'Moraleda', edad: 19 })}>
                 <Text style={styles.texto}>Lucas</Text>
             </TouchableOpacity>
 
